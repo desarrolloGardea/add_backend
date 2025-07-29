@@ -1,0 +1,35 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+
+# Directorio de salida de TypeScript
+dist/
+
+# Variables de entorno
+.env
+
+# Archivos de configuración del editor
+.idea/
+.vscode/
+*.swp
+
+# Directorios de test coverage
+coverage/
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de bloqueo de paquetes
+package-lock.json
+yarn.lock
+
+# Otros
+*.tsbuildinfo
+
