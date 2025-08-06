@@ -1,9 +1,18 @@
 import express, { Request, Response } from 'express';
 import { ApiResponse } from '@/domain/apiResponse';
+import cors from 'cors';
+
+import authRouter from './auth/routes';
+
 /**
  * se instancia la API
  */
 const api = express();
+
+/**
+ * Se habilita CORS para permitir peticiones
+ */
+api.use(cors());
 
 /**
  * ruta base de la API
@@ -31,4 +40,6 @@ api.use(express.json());
  * aqui se definen las rutas base para las
  * diversas funcionalidades de la aplicación
  */
+api.use('/v1/auth', authRouter);
+
 export default api;

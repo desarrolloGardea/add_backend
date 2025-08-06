@@ -1,7 +1,6 @@
 import User from '../domain/user';
 import { Role } from '@/domain/role';
 import { Schema, model, Document } from 'mongoose';
-import '@types/mongoose';
 
 /**
  *
