@@ -2,13 +2,12 @@ import jwt from 'jsonwebtoken';
 import { Role } from '../domain/role';
 import { Request, Response, NextFunction } from 'express';
 
-
 declare global {
     namespace Express {
         interface Request {
             user?: {
                 id: string;
-                role: Role.ADMIN;
+                role: Role;
             }
         }
     }
@@ -27,15 +26,13 @@ export function authMiddleware(req: Request, res: Response, next: NextFunction) 
             res.status(400).json({ message: 'Invalid token' });
             return
         }
-        req.user = decoded as { id: string; role: Role.ADMIN };
+        const payload = decoded as { id: string; role: Role };
+        req.user = payload;
 
-        if (req.user.role !== Role.ADMIN) {
+        if (payload.role !== Role.ADMIN) {
             res.status(400).json({ message: 'Invalid role' });
             return
         }
     })
     next()
-
-
-
 }
